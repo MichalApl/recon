@@ -24,7 +24,7 @@ function ffuf_ctrl_c() {
 
         # Relaunch ffuf excluding the specified size
         echo -e "${BLUE}Relaunching ffuf excluding Size: $filter_size ${RESET}"
-        ffuf -u https://$target/FUZZ -w $wordlist -fs $filter_size
+        ffuf -u https://$target/FUZZ -w $wordlist -fs $filter_size -o $directories_path/filtered_ffuf.txt
     else
         echo -e "${RED}Continuing with the next part of the script...${RESET}"
     fi
@@ -86,9 +86,6 @@ ${RESET}"
     screenshot_path=$target/screenshots
     scan_path=$target/scans
     directories_path=$target/directories
-    subdomain_screenshot_path=$subdomain_path/screenshots
-    subdomain_scan_path=$subdomain_path/scans
-    subdomain_directories_path=$subdomain_path/directories
 
     if [ ! -d "$target" ]; then
         mkdir $target
@@ -106,16 +103,8 @@ ${RESET}"
         mkdir $scan_path
     fi
 
-    if [ ! -d "$subdomain_screenshot_path" ]; then
-        mkdir $subdomain_screenshot_path
-    fi
-
-    if [ ! -d "$subdomain_scan_path" ]; then
-        mkdir $subdomain_scan_path
-    fi
-
-    if [ ! -d "$subdomain_directories_path" ]; then
-        mkdir $subdomain_directories_path
+    if [ ! -d "$directories_path" ]; then
+        mkdir $directories_path
     fi
 
     echo -e "${GREEN}
@@ -192,7 +181,7 @@ ${RESET}"
                 wordlist=$custom_wordlist
                 echo -e "${BLUE} 🔎 Launching ffuf with your custom wordlist... ${RESET}"
                 trap ffuf_ctrl_c INT  # Set the Ctrl+C handler for the ffuf part
-                ffuf -u https://$target/FUZZ -w $custom_wordlist
+                ffuf -u https://$target/FUZZ -w $custom_wordlist -o $directories_path/ffuf.txt
                 break
             else
                 echo -e "${RED} The specified wordlist does not exist. Please try again. ${RESET}"
@@ -203,7 +192,7 @@ ${RESET}"
         wordlist="/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
         echo -e "${BLUE} 🔎 Launching ffuf with the default wordlist... ${RESET}"
         trap ffuf_ctrl_c INT  # Set the Ctrl+C handler for the ffuf part
-        ffuf -u https://$target/FUZZ -w $wordlist
+        ffuf -u https://$target/FUZZ -w $wordlist -o $directories_path/ffuf.txt
 
     else
         echo -e "${RED} Invalid input. Please type 'y' / 'n'. ${RESET}"
