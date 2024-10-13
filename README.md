@@ -38,8 +38,8 @@ sudo apt install seclists
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/pt-recon-script.git
-cd pt-recon-script
+git clone https://github.com/MichalApl/recon.git
+cd recon
 ```
 
 ## Usage
