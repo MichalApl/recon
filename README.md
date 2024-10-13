@@ -66,8 +66,7 @@ The results are saved in organized directories under the target's name:
 <target>/
 ├── subdomains/
 │   ├── found_subdomains.txt
-│   ├── alive_subdomains.txt
-│   └── screenshots/
+│   └── alive_subdomains.txt
 ├── scans/
 │   ├── sslscan.txt
 │   ├── whatweb.txt
