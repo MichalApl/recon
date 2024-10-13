@@ -56,7 +56,7 @@ cd pt-recon-script
 ./recon.sh example.com
 ```
 
-This will begin the recon process on `example.com`, starting with subdomain enumeration and proceeding with the rest of the tasks.
+This will begin the recon process on `example.com`.
 
 ### Directory Structure
 
@@ -79,22 +79,8 @@ The results are saved in organized directories under the target's name:
 
 ### Custom Wordlist for Directory Brute-Forcing
 
-You can specify a custom wordlist for the `ffuf` directory enumeration step:
-
-```bash
-./recon.sh <target>
-```
-
-If you choose not to specify a wordlist, the default wordlist (`/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt`) will be used.
+You can specify a custom wordlist for the `ffuf` directory enumeration step. If you choose not to specify a wordlist, the default wordlist (`/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt`) will be used.
 
 ### Interrupt Handling
 
 The script handles interruptions during scans. For example, during a `ffuf` scan, if you press `Ctrl+C`, you will have the option to filter the results by file size before stopping the scan.
-
-## Contributing
-
-Feel free to submit issues or pull requests to improve the script. Contributions are welcome!
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
