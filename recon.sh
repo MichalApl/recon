@@ -83,7 +83,6 @@ else
 ${RESET}"
 
     subdomain_path=$target/subdomains
-    screenshot_path=$target/screenshots
     scan_path=$target/scans
     directories_path=$target/directories
 
@@ -93,10 +92,6 @@ ${RESET}"
 
     if [ ! -d "$subdomain_path" ]; then
         mkdir $subdomain_path
-    fi
-
-    if [ ! -d "$screenshot_path" ]; then
-        mkdir $screenshot_path
     fi
 
     if [ ! -d "$scan_path" ]; then
