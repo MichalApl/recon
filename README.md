@@ -76,7 +76,7 @@ The results are saved in organized directories under the target's name:
 │   └── nuclei.txt
 └── directories/
     ├── ffuf.txt
-    ├── filtered_ffuf.txt
+    └── filtered_ffuf.txt
 ```
 
 ### Custom Wordlist for Directory Brute-Forcing
