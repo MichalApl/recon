@@ -85,6 +85,7 @@ ${RESET}"
     subdomain_path=$target/subdomains
     scan_path=$target/scans
     directories_path=$target/directories
+    pocs_path=$target/PoCs
 
     if [ ! -d "$target" ]; then
         mkdir $target
@@ -100,6 +101,10 @@ ${RESET}"
 
     if [ ! -d "$directories_path" ]; then
         mkdir $directories_path
+    fi
+
+    if [ ! -d "$pocs_path" ]; then
+        mkdir $pocs_path
     fi
 
     echo -e "${GREEN}
